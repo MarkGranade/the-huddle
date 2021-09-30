@@ -39,13 +39,42 @@
         <div class="box">
           <h2 class="title is-3">Search Your Team</h2>
           <div class="field has-addons">
-            <div class="control">
-              <input class="input" type="text" placeholder="FC Barcelona">
-            </div>
-            <div class="control">
-              <a class="button is-primary">
-                Search
-              </a>
+            <div class="select">
+              <select name="teams" id="teams">
+                <option selected disabled>Select dropdown</option>
+                <option id="">Arizona Cardinals</option>
+                <option id="">Atlanta Falcons</option>
+                <option id="">Baltimore Ravens</option>
+                <option id="">Buffalo Bills</option>
+                <option id="">Carolina Panthers</option>
+                <option id="">Chicago Bears</option>
+                <option id="">Cincinnati Bengals</option>
+                <option id="">Cleveland Browns</option>
+                <option id="">Chicago Bears</option>
+                <option id="">Dallas Cowboys</option>
+                <option id="">Denver Broncos</option>
+                <option id="">Detroit Lions</option>
+                <option id="">Green Bay Packers</option>
+                <option id="">Indianapolis Colts</option>
+                <option id="">Jacksonville Jaguars</option>
+                <option id="">Kansas City Chiefs</option>
+                <option id="">Las Vegas Raiders</option>
+                <option id="">Los Angeles Chargers</option>
+                <option id="">Kansas City Chiefs</option>
+                <option id="">Miami Dolphins</option>
+                <option id="">Minnesota Vikings</option>
+                <option id="">New England Patriots</option>
+                <option id="">New Orleans Saints</option>
+                <option id="">New York Giants</option>
+                <option id="">New York Jets</option>
+                <option id="">Philadelphia Eagles</option>
+                <option id="">Pittsburgh Steelers</option>
+                <option id="">San Francisco 49ers</option>
+                <option id="">Seattle Seahawks</option>
+                <option id="">Tampa Bay Buccaneers</option>
+                <option id="">Tennessee Titans</option>
+                <option id="">Washington Football Team</option>
+              </select>
             </div>
           </div>
           <!--Append search history for team input-->
@@ -58,12 +87,13 @@
         <div class="column is-8">
           <div class="box">
             <h2 class="title is-3" style="text-align:center;">Schedule</h2>
-            <div id="search-history" class="list-group">
+            <div id="team-input" class="schedule-container">
               <ul></ul>
             </div>  
           </div>
         </div>
       </div>
     </div>
+    <script src="./assets/js/Untitled-2.js"></script>
   </body>
 </html>
