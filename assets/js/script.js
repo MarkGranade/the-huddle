@@ -1,4 +1,5 @@
 // api key =  cfc19886056f4d8fbbcfa5c178133e77
+var selectEl = document.querySelector('#teams');
 var currentYear = moment().format('YYYY');
 console.log(currentYear);
 
@@ -18,7 +19,7 @@ var getSchedule = function() {
 
 // GET CURRENT WEEK FUNCTION()
 var getCurrentWeek = function() {
-    var weekApi = 'https://api.sportsdata.io/v3/nfl/scores/json/CurrentWeek?key=cfc19886056f4d8fbbcfa5c178133e77'
+    var weekApi = 'https://api.sportsdata.io/v3/nfl/scores/json/CurrentWeek?key=cfc19886056f4d8fbbcfa5c178133e77';
 
     fetch(weekApi).then(function(response) {
         response.json().then(function(week) {
@@ -52,3 +53,9 @@ var displaySchedule = function(schedule, week) {
 
 getCurrentWeek();
 getSchedule();
+
+selectEl.addEventListener('change', (event) => {
+    var result = document.querySelector('#schedule-list');
+    // result.textContent = `You like ${event.target.value}`;
+    console.log(event);
+});
