@@ -2,13 +2,15 @@
     box-sizing: border-box;
   }
 
-  html,body
-  {
+  html,body{
       width: 100%;
       height: 100%;
       margin: 0px;
       padding: 0px;
+<<<<<<< HEAD
       overflow-y: hidden;
       overflow-x: hidden;
+=======
+>>>>>>> develop
       background-color: green;
   }
