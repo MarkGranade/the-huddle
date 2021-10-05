@@ -5,9 +5,9 @@
   }
 
   :root {
-    --primary-color: green;
+    --primary-color:green;
     --secondary-color: yellow;
-    --tertiary-color: red;
+    --tertiary-color: white;
   }
 
   html,body {
@@ -18,21 +18,39 @@
       background-color: var(--primary-color);
   }
 
+
   .title {
-    font-style: italic;
     font-weight: bold;
     font-size: 60px;
     color: var(--tertiary-color);
     margin: 0;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
-
-  /* html is currently one giant container and that makes me want to listen to lil peep and cry like a sad boi */
 
   .box {
     border: 3px solid var(--secondary-color);
     background-color: rgba(56, 76, 252, 0.8);
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
+  }
+
+  .navbar-item {
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  img {
+    vertical-align: middle;
+  }
+
+  .current-weather-container p {
+    font-weight: bold;
+  }
+
+  .current {
+    font-weight: normal;
+  }
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.7);
   }
