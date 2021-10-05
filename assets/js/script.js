@@ -3,7 +3,6 @@ var selectEl = document.querySelector('#teams');
 var currentYear = moment().format('YYYY');
 var teamValue = 0;
 console.log(currentYear);
-// api url
 var apiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/Schedules/' + currentYear + '?key=cfc19886056f4d8fbbcfa5c178133e77';
 
 
@@ -16,10 +15,7 @@ async function getapi(url) {
 
     // Storing data in form of JSON
     var data = await response.json();
-    // console.log(data);
-    if (response) {
-        hideloader();
-    }
+   
     selectEl.addEventListener('change', (event) => {
         teamValue = parseInt(event.target.value);
         // use 'teamValue' value to loop and find games with correct team ID
@@ -30,45 +26,36 @@ async function getapi(url) {
 // Calling that async function
 getapi(apiUrl);
 
-
-// Function to hide the loader
-function hideloader() {
-    document.getElementById('search-history').style.display = 'none'
-}
 // Function to define innerHTML for HTML schedule
 function show(data) {
     console.log(data);
+    // create table headers for each section
     let tab = 
-        `<ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>`;
+        `<tr>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Stadium</th>
+            <th>Date</th>
+        </tr>`;
     
-    // Loop to access all rows
-    // Use 'teamValue' and compare to "GlobalAwayTeamID" & "GlobalHomeTeamID"
-    // if 'teamValue' is flase ^ skip and check the next object
-    // else grab data and display
-
-    // var arr = ['1', '2', '3'];
-    // console.log(arr.filter(element => element === '2'))
     console.log(teamValue);
+    // for of loop that displays only games played by the 'teamValue'
     for (let r of data) {
-        // console.log(r.GlobalAwayTeamID);
-        // console.log(r.GlobalHomeTeamID);
-        // console.log(teamValue === r.GlobalAwayTeamID);
-        // console.log(teamValue === r.GlobalHomeTeamID);
-
+        
+        // if 'teamValue' is either the Home or Away team display info for that game
         if (teamValue === r.GlobalAwayTeamID || teamValue === r.GlobalHomeTeamID) {
+            var dateTest = moment(r.Date ? r.Date : '').format('MM, DD, YYYY');
             
+            // create the html below for each game 'teamValue' plays
             tab += 
-            `<li>${r.HomeTeam}  ${r.AwayTeam}  ${r.StadiumDetails ? r.StadiumDetails.City : '' }  ${r.Date ? r.Date : ''}</li>`;
+            `<tr>
+                <td>${r.HomeTeam}</td>
+                <td>${r.AwayTeam}</td>
+                <td>${r.StadiumDetails ? r.StadiumDetails.City : '' }</td>
+                <td>${dateTest ? dateTest : ''}</td>
+            </tr>`;
         };
     }
     // Setting innerHTML as tab variable
     document.getElementById('schedule-list').innerHTML = tab;
 }
-
-
