@@ -5,9 +5,15 @@
   }
 
   :root {
+<<<<<<< HEAD
     --primary-color: green;
     --secondary-color: yellow;
     --tertiary-color: red;
+=======
+    --primary-color:green;
+    --secondary-color: yellow;
+    --tertiary-color: white;
+>>>>>>> 8334d6e925327353bd3d6ec568e02a33a277412c
   }
 
   html,body {
@@ -18,12 +24,18 @@
       background-color: var(--primary-color);
   }
 
+<<<<<<< HEAD
   .title {
     font-style: italic;
+=======
+
+  .title {
+>>>>>>> 8334d6e925327353bd3d6ec568e02a33a277412c
     font-weight: bold;
     font-size: 60px;
     color: var(--tertiary-color);
     margin: 0;
+<<<<<<< HEAD
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 
@@ -36,3 +48,35 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
   }
+=======
+  }
+
+  .box {
+    border: 3px solid var(--secondary-color);
+    background-color: rgba(56, 76, 252, 0.8);
+    color: var(--tertiary-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+  }
+
+  .navbar-item {
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  img {
+    vertical-align: middle;
+  }
+
+  .current-weather-container p {
+    font-weight: bold;
+  }
+
+  .current {
+    font-weight: normal;
+  }
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+>>>>>>> 8334d6e925327353bd3d6ec568e02a33a277412c
