@@ -8,6 +8,9 @@
     --primary-color: green;
     --secondary-color: yellow;
     --tertiary-color: red;
+    --the-forth-color: rgba(56, 76, 252, 0.8);
+    --the-fifth-color: rgba(252, 111, 56, 0.8);
+    --shadow: rgba(0, 0, 0, 0.5);
   }
 
   html,body {
@@ -24,15 +27,44 @@
     font-size: 60px;
     color: var(--tertiary-color);
     margin: 0;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px var(--shadow);
   }
 
-  /* html is currently one giant container and that makes me want to listen to lil peep and cry like a sad boi */
+  .navbar {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0;
+    text-shadow: 0 0 10px var(--shadow);
+  }
+    
+    .navbar-menu {
+      border: 3px solid var(--secondary-color);
+      background-color: var(--the-fifth-color);
+      color: var(--secondary-color);
+      box-shadow: 0 0 10px var(--shadow);
+      border-radius: 15px;
+    } 
+      .navbar-start a {
+        border: 3px solid var(--secondary-color);
+        background-color: var(--primary-color);
+        color: var(--tertiary-color);
+        box-shadow: 0 0 10px var(--shadow);
+        border-radius: 100px;
+      }
 
   .box {
     border: 3px solid var(--secondary-color);
-    background-color: rgba(56, 76, 252, 0.8);
+    background-color: var(--the-forth-color);
     color: var(--secondary-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px var(--shadow);
     border-radius: 15px;
   }
+  
+     #teams {
+      border: 3px solid var(--secondary-color);
+      background-color: var(--the-fifth-color);
+      color: var(--secondary-color);
+      box-shadow: 0 0 10px var(--shadow);
+      border-radius: 5px;
+    } 
