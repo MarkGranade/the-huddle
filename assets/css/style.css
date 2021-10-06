@@ -2,12 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-style: italic;
+    font-weight: bold;
   }
 
   :root {
     --primary-color:green;
     --secondary-color: yellow;
     --tertiary-color: white;
+    --the-forth-color: rgba(56, 76, 252, 0.8);
+    --shadow: rgba(0, 0, 0, 0.5);
   }
 
   html,body {
@@ -24,14 +28,31 @@
     font-size: 60px;
     color: var(--tertiary-color);
     margin: 0;
+    text-shadow: 0 0 10px var(--shadow);
   }
 
   .box {
     border: 3px solid var(--secondary-color);
-    background-color: rgba(56, 76, 252, 0.8);
+    background-color: var(--the-forth-color);
     color: var(--tertiary-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px var(--shadow);
     border-radius: 15px;
+  }
+
+  #teams {
+    border: 3px solid var(--secondary-color);
+    background-color: var(--tertiary-color);
+    color: var(--shadow);
+    box-shadow: 0 0 10px var(--shadow);
+    border-radius: 5px;
+    text-shadow: 0 0 10px var(--shadow);
+  } 
+
+  .navbar {
+    font-size: 15px;
+    margin: 0;
+    text-shadow: 0 0 10px var(--shadow);
+    border-radius: 5px;
   }
 
   .navbar-item {
@@ -52,5 +73,5 @@
   }
 
   .card {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: var(--tertiary-color);
   }
