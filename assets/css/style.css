@@ -2,18 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-style: italic;
+    font-weight: bold;
   }
 
   :root {
-<<<<<<< HEAD
-    --primary-color: green;
-    --secondary-color: yellow;
-    --tertiary-color: red;
-=======
     --primary-color:green;
     --secondary-color: yellow;
     --tertiary-color: white;
->>>>>>> 8334d6e925327353bd3d6ec568e02a33a277412c
+    --the-forth-color: rgba(56, 76, 252, 0.8);
+    --shadow: rgba(0, 0, 0, 0.5);
   }
 
   html,body {
@@ -24,39 +22,37 @@
       background-color: var(--primary-color);
   }
 
-<<<<<<< HEAD
-  .title {
-    font-style: italic;
-=======
 
   .title {
->>>>>>> 8334d6e925327353bd3d6ec568e02a33a277412c
     font-weight: bold;
     font-size: 60px;
     color: var(--tertiary-color);
     margin: 0;
-<<<<<<< HEAD
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-
-  /* html is currently one giant container and that makes me want to listen to lil peep and cry like a sad boi */
-
-  .box {
-    border: 3px solid var(--secondary-color);
-    background-color: rgba(56, 76, 252, 0.8);
-    color: var(--secondary-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-  }
-=======
+    text-shadow: 0 0 10px var(--shadow);
   }
 
   .box {
     border: 3px solid var(--secondary-color);
-    background-color: rgba(56, 76, 252, 0.8);
+    background-color: var(--the-forth-color);
     color: var(--tertiary-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px var(--shadow);
     border-radius: 15px;
+  }
+
+  #teams {
+    border: 3px solid var(--secondary-color);
+    background-color: var(--tertiary-color);
+    color: var(--shadow);
+    box-shadow: 0 0 10px var(--shadow);
+    border-radius: 5px;
+    text-shadow: 0 0 10px var(--shadow);
+  } 
+
+  .navbar {
+    font-size: 15px;
+    margin: 0;
+    text-shadow: 0 0 10px var(--shadow);
+    border-radius: 5px;
   }
 
   .navbar-item {
@@ -77,6 +73,5 @@
   }
 
   .card {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: var(--tertiary-color);
   }
->>>>>>> 8334d6e925327353bd3d6ec568e02a33a277412c
