@@ -1,4 +1,3 @@
-//global variables
 var searchCity = $("#search-city");
 var searchButton = $("#search-button");
 var currentCity = $("#current-city");
@@ -33,14 +32,14 @@ function currentWeather(city) {
     var iconurl =
       "https://openweathermap.org/img/wn/" + weathericon + "@2x.png";
     // The date format method is taken from the  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
-    new Date(response.dt * 1000).toLocaleDateString();
+    var date = new Date(response.dt * 1000).toLocaleDateString();
     //parse the response for name of city and concanatig the date and icon.
     $(currentCity).html(response.name + "<img src=" + iconurl + ">");
     // parse the response to display the current temperature.
     // Convert the temp to fahrenheit
 
     var tempF = (response.main.temp - 273.15) * 1.8 + 32;
-    $(currentTemperature).html(tempF.toFixed(0) + "&#8457");
+    $(currentTemperature).html(tempF.toFixed(2) + "&#8457");
     // Display the Humidity
     $(currentHumidty).html(response.main.humidity + "%");
     //Display Wind speed and convert to MPH
@@ -50,7 +49,7 @@ function currentWeather(city) {
     // Display UVIndex.
     UVIndex(response.coord.lon, response.coord.lat);
     forecast(response.id);
-    if (response.cod == 200) {
+    if (response.status == 200) {
       sCity = JSON.parse(localStorage.getItem("cityname"));
       console.log(sCity);
       if (sCity == null) {
@@ -82,6 +81,7 @@ function UVIndex(ln, lt) {
 
 //display the 5 days forecast for the current city.
 function forecast(cityid) {
+  var dayover = false;
   var queryforcastURL =
     "https://api.openweathermap.org/data/2.5/forecast?id=" +
     cityid +
@@ -98,7 +98,7 @@ function forecast(cityid) {
       var iconcode = response.list[(i + 1) * 8 - 1].weather[0].icon;
       var iconurl = "https://openweathermap.org/img/wn/" + iconcode + ".png";
       var tempK = response.list[(i + 1) * 8 - 1].main.temp;
-      var tempF = ((tempK - 273.5) * 1.8 + 32).toFixed(0);
+      var tempF = ((tempK - 273.5) * 1.8 + 32).toFixed(2);
       var humidity = response.list[(i + 1) * 8 - 1].main.humidity;
       $(".cards-container").addClass("card");
       $("#fDate" + i).html(date);
