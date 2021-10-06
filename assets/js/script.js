@@ -1,54 +1,68 @@
 // api key =  cfc19886056f4d8fbbcfa5c178133e77
+var selectEl = document.querySelector('#teams');
 var currentYear = moment().format('YYYY');
+var teamValue = 0;
 console.log(currentYear);
+var apiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/Schedules/' + currentYear + '?key=cfc19886056f4d8fbbcfa5c178133e77';
 
-// teams.value = the value of each team in the dropdown
 
-// API CALL FOR SCORES BY WEEK
-var getSchedule = function() {
-    var apiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/' + currentYear + '/2?key=cfc19886056f4d8fbbcfa5c178133e77';
 
-    fetch(apiUrl).then(function(response) {
-        response.json().then(function(data) {
-            console.log(data);
-            displaySchedule(data);
-        })
-    })
-};
+// Defining async function
+async function getapi(url) {
 
-// GET CURRENT WEEK FUNCTION()
-var getCurrentWeek = function() {
-    var weekApi = 'https://api.sportsdata.io/v3/nfl/scores/json/CurrentWeek?key=cfc19886056f4d8fbbcfa5c178133e77'
+    // Storing response
+    const response = await fetch(url);
 
-    fetch(weekApi).then(function(response) {
-        response.json().then(function(week) {
-            console.log(week);
-        })
-    })
+    // Storing data in form of JSON
+    var data = await response.json();
+   
+    selectEl.addEventListener('change', (event) => {
+        teamValue = parseInt(event.target.value);
+        // use 'teamValue' value to loop and find games with correct team ID
+        console.log(teamValue);
+        show(data);
+    });
 }
+// Calling that async function
+getapi(apiUrl);
 
+// Function to define innerHTML for HTML schedule
+function show(data) {
+    console.log(data);
+    // create table headers for each section
+    let tab = 
+        `<tr>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Stadium</th>
+            <th>Date</th>
+        </tr>`;
+    
+    console.log(teamValue);
+    // for of loop that displays only games played by the 'teamValue'
+    for (let r of data) {
+        
+        // if 'teamValue' is either the Home or Away team display info for that game
+        if (teamValue === r.GlobalAwayTeamID || teamValue === r.GlobalHomeTeamID) {
+            // use ternary operator on r.date and r.stadiumdetails
+            var displayDate = moment(r.Date ? r.Date : '').format('MM, DD, YYYY');
+            console.log(displayDate);
 
-// DISPLAY TEAM GAMES FUNCTION
-// - search for any game with team id === dropdown selection
-// - 
+            // HUNTER'S CODE! HE SOLVED IT SO EASY
+            if (displayDate === 'Invalid date') {
+                displayDate = '';
+            };
 
-
-// DISPLAY SCHEDULE FUNCTION()  
-var displaySchedule = function(schedule, week) {
-    // for (var i = 0; i < schedule.length; i++) {
+            // create the html below for each game 'teamValue' plays
+            tab += 
+            `<tr>
+                <td>${r.HomeTeam}</td>
+                <td>${r.AwayTeam}</td>
+                <td>${r.StadiumDetails ? r.StadiumDetails.City : '' }</td>
+                <td>${displayDate ? displayDate : ''}</td>
+            </tr>`;
+        };
+    }
+    // Setting innerHTML as tab variable
+    document.getElementById('schedule-list').innerHTML = tab;
 }
-// - create loop for schedule API to find
-// -    - team
-// -    - date
-
-// - create variable to display the following
-// -    - home team
-// -    - away team
-// -    - location
-// -    - date
-// -    - time
-// - create element to display data in HTML
-
-
-getCurrentWeek();
-getSchedule();
