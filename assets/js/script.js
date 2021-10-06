@@ -44,15 +44,22 @@ function show(data) {
         
         // if 'teamValue' is either the Home or Away team display info for that game
         if (teamValue === r.GlobalAwayTeamID || teamValue === r.GlobalHomeTeamID) {
-            var dateTest = moment(r.Date ? r.Date : '').format('MM, DD, YYYY');
-            
+            // use ternary operator on r.date and r.stadiumdetails
+            var displayDate = moment(r.Date ? r.Date : '').format('MM, DD, YYYY');
+            console.log(displayDate);
+
+            // HUNTER'S CODE! HE SOLVED IT SO EASY
+            if (displayDate === 'Invalid date') {
+                displayDate = '';
+            };
+
             // create the html below for each game 'teamValue' plays
             tab += 
             `<tr>
                 <td>${r.HomeTeam}</td>
                 <td>${r.AwayTeam}</td>
                 <td>${r.StadiumDetails ? r.StadiumDetails.City : '' }</td>
-                <td>${dateTest ? dateTest : ''}</td>
+                <td>${displayDate ? displayDate : ''}</td>
             </tr>`;
         };
     }
