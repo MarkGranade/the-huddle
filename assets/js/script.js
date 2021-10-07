@@ -34,8 +34,10 @@ function show(data) {
         `<tr>
             <th>Home Team</th>
             <th>Away Team</th>
-            <th>Stadium</th>
+            <th>City</th>
             <th>Date</th>
+            <th>TV Channel</th>
+            <th>Stadium Type</th>
         </tr>`;
     
     console.log(teamValue);
@@ -60,6 +62,8 @@ function show(data) {
                 <td>${r.AwayTeam}</td>
                 <td>${r.StadiumDetails ? r.StadiumDetails.City : '' }</td>
                 <td>${displayDate ? displayDate : ''}</td>
+                <td>${r.Channel ? r.Channel: ''}</td>
+                <td>${r.StadiumDetails ? r.StadiumDetails.Type : ''}</td>
             </tr>`;
         };
     }

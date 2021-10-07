@@ -54,7 +54,12 @@
   }
 
   .navbar a:hover {
+<<<<<<< HEAD
     text-shadow: 0 0 10px var(--shadow);
+=======
+    text-shadow: var(--shadow);
+    border-radius: 15px;
+>>>>>>> weather/framework
   }
 
   .navbar-item {
@@ -77,3 +82,12 @@
   .card {
     background-color: var(--tertiary-color);
   }
+
+  .table-wrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+}
+
