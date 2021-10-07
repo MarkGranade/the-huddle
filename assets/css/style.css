@@ -45,14 +45,17 @@
     color: var(--shadow);
     box-shadow: 0 0 10px var(--shadow);
     border-radius: 5px;
-    text-shadow: 0 0 10px var(--shadow);
   } 
 
   .navbar {
     font-size: 15px;
     margin: 0;
-    text-shadow: 0 0 10px var(--shadow);
     border-radius: 5px;
+  }
+
+  .navbar a:hover {
+    text-shadow: var(--shadow);
+    border-radius: 15px;
   }
 
   .navbar-item {
@@ -75,3 +78,12 @@
   .card {
     background-color: var(--tertiary-color);
   }
+
+  .table-wrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+}
+

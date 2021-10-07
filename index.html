@@ -27,7 +27,7 @@
         <nav class="navbar">
           <div id="navMenu" class="navbar-item">
             <div class="navbar-start">
-              <a href="index.html"class="navbar-item mr-6">Fixtures</a>
+              <a href="index.html"class="navbar-item mr-6">Schedule</a>
               <a href="weather.html" class="navbar-item ml-6">Weather Checker</a>
             </div>
           </div>
@@ -36,7 +36,7 @@
 
       <!--Search input box and append teams searched-->
       <div class="columns">
-        <div class="column is-4">
+        <div class="column is-4 is-full-mobile">
         <div class="box">
           <h2 class="title is-3">Search Your Team</h2>
           <div class="field has-addons">
@@ -81,11 +81,13 @@
         </div>
         </div>
         <!--Append schedule for team input-->
-        <div class="column is-8">
+        <div class="column is-full-mobile is-8">
           <div class="box">
-            <h2 class="title is-3" style="text-align:center;">Schedule</h2>
+            <h2 class="title is-3" style="text-align:center;">Team Schedule</h2>
             <div id="team-input" class="schedule-container">
-              <table class="table is-striped is-fullwidth" id="schedule-list"></table>
+                <div class="table-wrapper">
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" id="schedule-list"></table>
+                </div>
             </div>  
           </div>
         </div> 
