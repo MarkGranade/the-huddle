@@ -21,14 +21,15 @@
       padding: 0px;
       background-color: var(--primary-color);
   }
-
-
+  
   .title {
     font-weight: bold;
     font-size: 60px;
     color: var(--tertiary-color);
     margin: 0;
     text-shadow: 0 0 10px var(--shadow);
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .box {
@@ -53,11 +54,16 @@
     margin: 0;
     text-shadow: 0 0 10px var(--shadow);
     border-radius: 5px;
+    border: 3px solid var(--secondary-color);
+    box-shadow: 0 0 10px var(--shadow);
+    
   }
 
   .navbar-item {
     font-style: italic;
     font-weight: bold;
+    display: inline-flex;
+    flex-wrap: wrap;
   }
 
   img {
@@ -74,4 +80,28 @@
 
   .card {
     background-color: var(--tertiary-color);
+  }
+
+  .input {
+    border: 3px solid var(--secondary-color);
+  }
+
+  .schedule-container {
+    border: 3px solid var(--secondary-color);
+    background-color: var(--tertiary-color);
+    color: var(--shadow);
+    box-shadow: 0 0 10px var(--shadow);
+    border-radius: 5px;
+    text-shadow: 0 0 10px var(--shadow);
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .columns is-centered {
+    border: 3px solid var(--secondary-color);
+    background-color: var(--tertiary-color);
+    color: var(--shadow);
+    box-shadow: 0 0 10px var(--shadow);
+    border-radius: 5px;
+    text-shadow: 0 0 10px var(--shadow);
   }
