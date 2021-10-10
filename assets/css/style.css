@@ -27,7 +27,7 @@
     font-weight: bold;
     font-size: 60px;
     color: var(--tertiary-color);
-    margin: 0;
+    margin: 100;
     text-shadow: 0 0 10px var(--shadow);
   }
 
@@ -51,6 +51,8 @@
     font-size: 15px;
     margin: 0;
     border-radius: 5px;
+    border: 3px solid var(--secondary-color);
+    box-shadow: 0 0 10px var(--shadow);
   }
 
   .navbar a:hover {
@@ -63,12 +65,30 @@
     font-weight: bold;
   }
 
+  .navbar-start {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .navbar-item mr-6 {
+    display: flex;
+    flex-wrap: wrap;
+    object-position: left;
+  }
+
+  .navbar-item ml-6 {
+    display: flex;
+    flex-wrap: wrap;
+    object-position: left;
+  }
+
   img {
     vertical-align: middle;
   }
 
   .current-weather-container p {
     font-weight: bold;
+    text-shadow: 0 0 10px var(--shadow);
   }
 
   .current {
@@ -81,9 +101,22 @@
 
   .table-wrapper {
   overflow-x: auto;
+  border: 3px solid var(--secondary-color);
+  background-color: var(--tertiary-color);
+  color: var(--shadow);
+  box-shadow: 0 0 10px var(--shadow);
+  border-radius: 5px;
+  text-shadow: 0 0 10px var(--shadow);
 }
 
 .table {
   width: 100%;
 }
 
+.control {
+  box-shadow: 0 0 10px var(--shadow);
+}
+
+.input {
+  border: 3px solid var(--secondary-color);
+} 
