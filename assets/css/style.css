@@ -54,12 +54,8 @@
   }
 
   .navbar a:hover {
-<<<<<<< HEAD
-    text-shadow: 0 0 10px var(--shadow);
-=======
     text-shadow: var(--shadow);
     border-radius: 15px;
->>>>>>> weather/framework
   }
 
   .navbar-item {
