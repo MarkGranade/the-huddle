@@ -1,131 +1,124 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Huddle</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <!--Heading-->
-      <section class="hero">
-        <div class="hero-body">
-          <p class="title" style="text-align: center"><img src="./assets/football.svg">
-            The Huddle</p>
-        </div>
-      </section>
-      <!--Nav items-->
-      <div class="box">
-        <nav class="navbar">
-          <div id="navMenu" class="navbar-item">
-            <div class="navbar-start">
-              <a href="index.html" class="navbar-item mr-6">Schedule</a>
-              <a href="weather.html" class="navbar-item ml-6"
-                >Weather Checker</a
-              >
-            </div>
-          </div>
-        </nav>
-      </div>
 
-      <!--Search input box and append teams searched-->
-      <div class="columns">
-        <div class="column is-4">
-          <div class="box">
-            <h2 class="title is-3">Search City</h2>
-            <div class="field has-addons">
-              <div class="control">
-                <input
-                  id="search-city"
-                  class="input"
-                  type="text"
-                  placeholder="Enter City Name"
-                />
-              </div>
-              <div class="control" id="search-button">
-                <button class="button is-success">Search</button>
-              </div>
-            </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Huddle</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!--Heading-->
+    <section class="hero">
+      <div class="hero-body">
+        <p class="title" style="text-align: center"><img src="./assets/football.svg">
+          The Huddle</p>
+      </div>
+    </section>
+    <!--Nav items-->
+    <div class="box">
+      <nav class="navbar">
+        <div id="navMenu" class="navbar-item">
+          <div class="navbar-start">
+            <a href="index.html" class="navbar-item mr-6">Schedule</a>
+            <a href="weather.html" class="navbar-item ml-6">Weather Checker</a>
           </div>
         </div>
-        <div class="column is-8">
-          <div class="box">
-            <h2 class="title is-2" style="text-align: center">Game Day Forecast</h2>
-            <h3 id="current-city" class="title is-3" style="text-align: center">
-            </h3>
-            <div id="current-weather" class="current-weather-container">
-              <p>Temperature: <span class="current" id="temperature"></p>
-              <p>Humidity: <span class="current" id="humidity"></p>
-              <p>Wind Speed: <span class="current" id="wind-speed"></p>
-              <p>
-                UV index: <span
-                  class="current"
-                  id="uv-index"
-                ></span>
-              </p>
+      </nav>
+    </div>
+
+    <!--Search input box and append teams searched-->
+    <div class="columns">
+      <div class="column is-4">
+        <div class="box">
+          <h2 class="title is-3">Search City</h2>
+          <div class="field has-addons">
+            <div class="control">
+              <input id="search-city" class="input" type="text" placeholder="Enter City Name" />
             </div>
+            <div class="control" id="search-button">
+              <button class="button is-success">Search</button>
+            </div>
+          </div>
+          <ul id="savedCity">
+
+          </ul>
+        </div>
+      </div>
+      <div class="column is-8">
+        <div class="box">
+          <h2 class="title is-2" style="text-align: center">Game Day Forecast</h2>
+          <h3 id="current-city" class="title is-3" style="text-align: center">
+          </h3>
+          <div id="current-weather" class="current-weather-container">
+            <p>Temperature: <span class="current" id="temperature"></p>
+            <p>Humidity: <span class="current" id="humidity"></p>
+            <p>Wind Speed: <span class="current" id="wind-speed"></p>
+            <p>
+              UV index: <span class="current" id="uv-index"></span>
+            </p>
           </div>
         </div>
       </div>
-      <div class="columns">
-          <div class="column is-12">
-            <div class="box">
-                <h2 class="title is-3" style="text-align: center;">5-Day Forecast</h2>
-                <div id="forecast" class="forecast-container"></div>
-                <!-- forecast cards container -->
-        <div class="columns is-centered">
+    </div>
+    <div class="columns">
+      <div class="column is-12">
+        <div class="box">
+          <h2 class="title is-3" style="text-align: center;">5-Day Forecast</h2>
+          <div id="forecast" class="forecast-container"></div>
+          <!-- forecast cards container -->
+          <div class="columns is-centered">
             <div class="column is-2">
               <div class="cards-container">
                 <p id="fDate0" class="card-header-title">
-                  <p id="fImg0" class="card-header-title"></p>
-                  <p><span id="fTemp0"></span></p>
-                  <p><span id="fHumidity0"></span></p>
+                <p id="fImg0" class="card-header-title"></p>
+                <p><span id="fTemp0"></span></p>
+                <p><span id="fHumidity0"></span></p>
+              </div>
+            </div>
+            <!--forecast cards-->
+            <div class="column is-2">
+              <div class="cards-container">
+                <p id="fDate1" class="card-header-title">
+                <p id="fImg1" class="card-header-title">
+                <p><span id="fTemp1"></span></p>
+                <p><span id="fHumidity1"></span></p>
+              </div>
+            </div>
+            <div class="column is-2">
+              <div class="cards-container">
+                <p id="fDate2" class="card-header-title">
+                <p id="fImg2" class="card-header-title">
+                <p><span id="fTemp2"></span></p>
+                <p><span id="fHumidity2"></span></p>
+              </div>
+            </div>
+            <div class="column is-2">
+              <div class="cards-container">
+                <p id="fDate3" class="card-header-title">
+                <p id="fImg3" class="card-header-title">
+                <p><span id="fTemp3"></span></p>
+                <p><span id="fHumidity3"></span></p>
+              </div>
+            </div>
+            <div class="column is-2">
+              <div class="cards-container">
+                <p id="fDate4" class="card-header-title">
+                <p id="fImg4" class="card-header-title">
+                <p><span id="fTemp4"></span></p>
+                <p><span id="fHumidity4"></span></p>
+              </div>
             </div>
           </div>
-  <!--forecast cards-->
-  <div class="column is-2">
-    <div class="cards-container">
-      <p id="fDate1" class="card-header-title">
-        <p id="fImg1" class="card-header-title">
-        <p><span id="fTemp1"></span></p>
-        <p><span id="fHumidity1"></span></p>
-  </div>
-</div>
-<div class="column is-2">
-  <div class="cards-container">
-    <p id="fDate2" class="card-header-title">
-      <p id="fImg2" class="card-header-title">
-      <p><span id="fTemp2"></span></p>
-      <p><span id="fHumidity2"></span></p>
-</div>
-</div>
-<div class="column is-2">
-  <div class="cards-container">
-    <p id="fDate3" class="card-header-title">
-      <p id="fImg3" class="card-header-title">
-      <p><span id="fTemp3"></span></p>
-      <p><span id="fHumidity3"></span></p>
-</div>
-</div>
-<div class="column is-2">
-  <div class="cards-container">
-    <p id="fDate4" class="card-header-title">
-      <p id="fImg4" class="card-header-title">
-      <p><span id="fTemp4"></span></p>
-      <p><span id="fHumidity4"></span></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+        </div>
+      </div>
+    </div>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="./assets/js/weather.js"></script>
 
-  </body>
+</body>
+
 </html>
