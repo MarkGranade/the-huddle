@@ -7,8 +7,8 @@ A website that allows football fans to check their favorite teams schedule, whil
 * HTML
 * CSS
 * JavaScript
-* is-Bulma
-* Jquery
+* Bulma
+* jQuery
 
 ## Website
 https://markgranade.github.io/the-huddle/
