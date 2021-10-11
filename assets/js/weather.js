@@ -6,6 +6,7 @@ var currentTemperature = $("#temperature");
 var currentHumidty = $("#humidity");
 var currentWindSpeed = $("#wind-speed");
 var currentUvindex = $("#uv-index");
+let savedCity = document.getElementById('savedCity');
 
 //API key
 var APIKey = "a0aca8a89948154a4182dcecc780b513";
@@ -13,9 +14,9 @@ var APIKey = "a0aca8a89948154a4182dcecc780b513";
 // Display the current and future weather based on search box input
 function displayWeather(event) {
   event.preventDefault();
-    city = searchCity.val().trim();
-    currentWeather(city);
-  }
+  city = searchCity.val().trim();
+  currentWeather(city);
+}
 
 function currentWeather(city) {
   var queryURL =
@@ -51,19 +52,39 @@ function currentWeather(city) {
     UVIndex(response.coord.lon, response.coord.lat);
     forecast(response.id);
     if (response.cod == 200) {
-      sCity = JSON.parse(localStorage.getItem("cityname"));
+      sCity = JSON.parse(localStorage.getItem("cityname")) || [];
       console.log(sCity);
+      displaySavedCities();
       if (sCity == null) {
         sCity = [];
-        sCity.push(city.toUpperCase());
+        // sCity.push(city.toUpperCase());
       } else {
         if (find(city) > 0) {
-          sCity.push(city.toUpperCase());
+          // sCity.push(city.toUpperCase());
         }
       }
+      storeCities(sCity.value, response);
     }
   });
 }
+
+// display saved citites onto the page
+function displaySavedCities() {
+  for (i = 0; i < sCity.length; i++) {
+    savedCity.innerHTML = savedCity.innerHTML + ` <li class="list-group-item"> <button class="button cities"> ${sCity[i]} </button> </li> `
+  }
+  let cities = document.querySelectorAll('.cities')
+
+  for (i = 0; i < cities.length; i++) {
+    cities[i].addEventListener('click', function () {
+      console.log(this.textContent)
+      currentWeather(this.textContent);
+    })
+  }
+  // currentWeather(sCity[sCity.length-1]); 
+};
+
+
 function UVIndex(ln, lt) {
   var uvqURL =
     "https://api.openweathermap.org/data/2.5/uvi?appid=" +
@@ -91,6 +112,7 @@ function forecast(cityid) {
     url: queryforcastURL,
     method: "GET",
   }).then(function (response) {
+    console.log(response);
     for (i = 0; i < 5; i++) {
       var date = new Date(
         response.list[(i + 1) * 8 - 1].dt * 1000
@@ -110,3 +132,13 @@ function forecast(cityid) {
 }
 //Click Handlers
 $("#search-button").on("click", displayWeather);
+
+// store into local storage
+function storeCities(city, cityData) {
+  if (sCity.includes(cityData.name)) { // if value already exists - don't push to array
+    console.log('ALREADY EXISTS DONT PUSH ME')
+  } else { // else if- value does not exist- push to array
+    sCity.push(cityData.name);
+    localStorage.setItem("cityname", JSON.stringify(sCity));
+  }
+};

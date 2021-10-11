@@ -5,8 +5,6 @@ var teamValue = 0;
 console.log(currentYear);
 var apiUrl = 'https://api.sportsdata.io/v3/nfl/scores/json/Schedules/' + currentYear + '?key=cfc19886056f4d8fbbcfa5c178133e77';
 
-
-
 // Defining async function
 async function getapi(url) {
 
@@ -69,4 +67,6 @@ function show(data) {
     }
     // Setting innerHTML as tab variable
     document.getElementById('schedule-list').innerHTML = tab;
-}
+};
+
+
